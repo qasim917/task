@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="bg-secondary">
+    <div class="container">
+        <div class="row justify-content-center align-content-center" style="height: 50vh;">
+            <div class="col-md-6">
+                <div class="card bg-dark p-5 rounded rounded-3">
+                    <h1 class="text-center text-light">Factorial Calculator</h1>
+                    <input id="numberInput" class="form-control my-3" type="number" placeholder="Enter a number" />
+                    <button onclick="calculateFactorial()" class="btn btn-info w-100 my-2">Calculate Factorial</button>
+                    <h2 id="result" class="text-center text-dark bg-light rounded rounded-3 my-4"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateFactorial() {
+            let num = document.getElementById('numberInput').value;
+            let result = document.getElementById('result');
+            
+            if (num < 0) {
+                result.innerText = "Factorial is not defined for negative numbers.";
+                return;
+            }
+
+            let factorial = 1;
+            for (let i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+
+            result.innerText = `The factorial of ${num} is ${factorial}.`;
+        }
+    </script>
+</body>
+</html>
